@@ -29,6 +29,7 @@ namespace server_media_manager
 
 
 			app.MapControllers();
+			
 
 			app.Run();
 		}

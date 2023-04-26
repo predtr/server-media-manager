@@ -24,13 +24,8 @@ namespace server_media_manager
 			}
 
 			app.UseHttpsRedirection();
-
 			app.UseAuthorization();
-
-
 			app.MapControllers();
-			
-
 			app.Run();
 		}
 	}

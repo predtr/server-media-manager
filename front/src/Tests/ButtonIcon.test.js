@@ -1,4 +1,4 @@
-import {getByTestId, render, screen} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import ButtonIcon from "../Components/ButtonIcon";
 import userEvent from "@testing-library/user-event";
 

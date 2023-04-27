@@ -1,8 +1,14 @@
 import React from "react";
-import {Button} from "semantic-ui-react";
+import {Button, Icon} from "semantic-ui-react";
 
-export default function ButtonIcon(){
+export default function ButtonIcon({ text, onClick = null, icon = null }){
     return(
-        <Button>Test</Button>
+        <Button onClick={onClick} data-testid="button">
+            {icon ?
+                <Icon data-testid="icon" name={icon} />
+                :
+                <></>}
+            {text}
+        </Button>
     );
 }

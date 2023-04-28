@@ -2,7 +2,6 @@ import {render, screen} from '@testing-library/react';
 import ButtonIcon from "../../Components/ButtonIcon";
 import userEvent from "@testing-library/user-event";
 
-
 test('Text is present in button', () => {
     render(<ButtonIcon text="Test"/>);
     const linkElement = screen.getByText(/Test/i);

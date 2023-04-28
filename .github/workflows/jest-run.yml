@@ -3,7 +3,7 @@ name: Run jest
 on:
   push:
     branches:
-      - master
+      - main
     paths: 
       - "front/**"
 

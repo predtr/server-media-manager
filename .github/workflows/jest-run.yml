@@ -1,6 +1,11 @@
 name: Run jest
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths: 
+      - "front/**"
 
 jobs:
   build:

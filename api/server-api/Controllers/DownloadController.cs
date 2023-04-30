@@ -24,15 +24,9 @@ public class DownloadController : ControllerBase
     }
 
     [HttpGet("lists")]
-    public List<MediaFile> GetDownloadedFileList()
+    public List<IMediaFile> GetDownloadedFileList()
 	{
-        List<MediaFile> lists = new List<MediaFile>
-        {
-            new MediaFile{ FullPath = "C:/test/test.mkv", TemporaryID = 1},
-            new MediaFile{ FullPath = "C:/test/toto.mkv", TemporaryID = 2},
-            new MediaFile{ FullPath = "C:/test/tata.mkv", TemporaryID = 3}
-        };
-        return lists;
+        return DownloadService.GetList();
 	}
 
     [HttpGet("dispatch")]
@@ -42,7 +36,7 @@ public class DownloadController : ControllerBase
         {
             using var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
             _logger.Log(LogLevel.Information, "WebSocket connection established");
-            await new DownloadService().DispatchFiles(webSocket);
+            await DownloadService.DispatchFiles(webSocket);
         }
         else
         {

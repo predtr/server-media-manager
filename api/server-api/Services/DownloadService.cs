@@ -1,12 +1,25 @@
 ﻿using System;
 using System.Net.WebSockets;
 using System.Text;
+using server_media_manager.Interfaces;
+using server_media_manager.Models;
 
 namespace server_media_manager.Services
 {
-	public class DownloadService
+	public static class DownloadService
 	{
-        public async Task DispatchFiles(WebSocket webSocket)
+        public static List<IMediaFile> GetList()
+        {
+            List<IMediaFile> lists = new List<IMediaFile>
+            {
+            new MediaFile("C:/test/test.mkv"),
+            new MediaFile("C:/test/toto.mkv"),
+            new MediaFile("C:/test/tata.mkv")
+            };
+            return lists;
+        }
+
+        public static async Task DispatchFiles(WebSocket webSocket)
         {
             var buffer = new byte[1024 * 4];
             var result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);

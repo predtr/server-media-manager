@@ -1,10 +1,10 @@
 import 'semantic-ui-css/semantic.min.css'
-import { Menu, MenuItem } from 'semantic-ui-react'
+import { Container, Menu, MenuItem } from 'semantic-ui-react'
 import { DownloadFileBrowse } from '@components/DownloadFileBrowse/DownloadFileBrowse.tsx'
 
 function App() {
   return (
-    <>
+    <Container fluid>
       <Menu inverted>
         <MenuItem
           name='home'
@@ -17,7 +17,7 @@ function App() {
         />
       </Menu>
       <DownloadFileBrowse/>
-    </>
+    </Container>
   )
 }
 
